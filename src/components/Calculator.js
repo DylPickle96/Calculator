@@ -13,7 +13,8 @@ class Calculator extends Component {
 		super(props);
 
 		this.state = {
-			numberPad: []
+			numberPad: [],
+			firstValue: ""
 		}
 
 		this.drawCalc = this.drawCalc.bind(this);
@@ -41,6 +42,14 @@ class Calculator extends Component {
 	}
 
 	handleClick = (squareValue) => {
+
+		let firstValue = this.state.firstValue;
+
+		if (!isNaN(parseInt(squareValue))) {
+			firstValue = firstValue + squareValue.toString();
+		}
+
+		this.setState({ firstValue: firstValue });
 		
 	}
 
