@@ -17,6 +17,7 @@ class Calculator extends Component {
 		}
 
 		this.drawCalc = this.drawCalc.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	drawCalc = (interfaceList) => {
@@ -25,10 +26,22 @@ class Calculator extends Component {
 
 		interfaceList.forEach( (interfaceObject, i) => {
 			console.log(interfaceObject);
-			numberPad.push(<Square key={i} squareValue={interfaceObject.value} color={interfaceObject.color} />)
+			numberPad.push(<Square 
+															key={i} 
+															squareValue={interfaceObject.value} 
+															color={interfaceObject.color} 
+															width={interfaceObject.width} 
+															borderRadius={interfaceObject.borderRadius}
+															fontColor={interfaceObject.fontColor}
+															handleClick={this.handleClick}
+										/>)
 		});
 
 		this.setState({numberPad: numberPad});
+	}
+
+	handleClick = () => {
+
 	}
 
 	componentWillMount () {

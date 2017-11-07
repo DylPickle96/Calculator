@@ -1,16 +1,21 @@
 import React from 'react';
 
-const Screen = () => {
-
-	const styles = {
+const styles = {
+	divStyle: {
 		backgroundColor: 'rgb(153, 153, 153)',
 		maxWidth: '228px',
-		height: '76px',
-		borderRadius: '1px'
+		height: '75px',
+		borderRadius: '5px 5px 0px 0px',
 	}
+}
+
+const Screen = () => {
+
+	const { divStyle, textStyle } = styles;
 
 	return (
-		<div style={styles}></div>
+		<div style={divStyle}>
+		</div>
 	);
 }
 

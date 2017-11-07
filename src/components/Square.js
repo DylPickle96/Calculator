@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Square = ({ squareValue, color }) => {
+const Square = ({ squareValue, color, width, borderRadius, fontColor, handleClick }) => {
 
 	const styles = {
 		divStyle: {
-			width: '56px',
-			height: '46px',
+			width: width,
+			height: '48px',
 			border: '0.5px rgb(142, 142, 142) solid',
 			float: 'left',
   		margin: '0',
@@ -14,7 +14,9 @@ const Square = ({ squareValue, color }) => {
  	 		fontSize: '1.1em',
  	 		textAlign: 'center',
  	 		lineHeight: '45px',
- 	 		backgroundColor: color
+ 	 		backgroundColor: color,
+ 	 		borderRadius: borderRadius,
+ 	 		color: fontColor
 		},
 		spanStyle: {
 			display: 'inline-block',

@@ -1,79 +1,136 @@
 const interfaceList = [
 	{
 		value: 'AC',
-		color: 'rgb(214, 214, 214)'
+		color: 'rgb(214, 214, 214)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '+/-',
-		color: 'rgb(214, 214, 214)'
+		color: 'rgb(214, 214, 214)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '%',
-		color: 'rgb(214, 214, 214)'
+		color: 'rgb(214, 214, 214)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '/',
-		color: 'rgb(233, 151, 72)'
+		color: 'rgb(233, 151, 72)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'white',
 	},
 	{
 		value: '7',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '8',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '9',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: 'X',
-		color: 'rgb(233, 151, 72)'
+		color: 'rgb(233, 151, 72)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'white',
 	},
 	{
 		value: '4',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '5',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '6',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},	
 	{
 		value: '-',
-		color: 'rgb(233, 151, 72)'
+		color: 'rgb(233, 151, 72)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'white',
 	},	
 	{
 		value: '1',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '2',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},
 	{
 		value: '3',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},	
 	{
 		value: '+',
-		color: 'rgb(233, 151, 72)'
+		color: 'rgb(233, 151, 72)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'white',
 	},	
 	{
 		value: '0',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '113px',
+		borderRadius: '0px 0px 0px 5px',
+		fontColor: 'black',
 	},
 	{
 		value: '.',
-		color: 'rgb(224, 224, 224)'
+		color: 'rgb(224, 224, 224)',
+		width: '56px',
+		borderRadius: '0px 0px 0px 0px',
+		fontColor: 'black',
 	},	
 	{
 		value: '=',
-		color: 'rgb(233, 151, 72)'
+		color: 'rgb(233, 151, 72)',
+		width: '56px',
+		borderRadius: '0px 0px 5px 0px',
+		fontColor: 'white',
 	},	
 ];
 
