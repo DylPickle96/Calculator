@@ -14,7 +14,7 @@ const Screen = () => {
 	const { divStyle, textStyle } = styles;
 
 	return (
-		<div style={divStyle}>
+		<div style={ divStyle }>
 		</div>
 	);
 }

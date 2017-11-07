@@ -28,8 +28,8 @@ const Square = ({ squareValue, color, width, borderRadius, fontColor, handleClic
 	const { divStyle, spanStyle } = styles;
 
 	return (
-		<div style={divStyle}>
-			<span style={spanStyle}>{squareValue}</span>
+		<div style={ divStyle } onClick={ handleClick.bind(this, squareValue) }>
+			<span style={ spanStyle }>{ squareValue }</span>
 		</div>
 	);
 };

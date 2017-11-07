@@ -25,23 +25,23 @@ class Calculator extends Component {
 		const numberPad = [];
 
 		interfaceList.forEach( (interfaceObject, i) => {
-			console.log(interfaceObject);
+
 			numberPad.push(<Square 
-															key={i} 
-															squareValue={interfaceObject.value} 
-															color={interfaceObject.color} 
-															width={interfaceObject.width} 
-															borderRadius={interfaceObject.borderRadius}
-															fontColor={interfaceObject.fontColor}
+															key={ i } 
+															squareValue={ interfaceObject.value } 
+															color={ interfaceObject.color } 
+															width={ interfaceObject.width } 
+															borderRadius={ interfaceObject.borderRadius }
+															fontColor={ interfaceObject.fontColor }
 															handleClick={this.handleClick}
 										/>)
 		});
 
-		this.setState({numberPad: numberPad});
+		this.setState({ numberPad: numberPad });
 	}
 
-	handleClick = () => {
-
+	handleClick = (squareValue) => {
+		
 	}
 
 	componentWillMount () {
@@ -54,8 +54,8 @@ class Calculator extends Component {
 				<div>
 					<Screen />
 				</div>
-				<div style={styles}>
-					{this.state.numberPad}
+				<div style={ styles }>
+					{ this.state.numberPad }
 				</div>
 			</div>
 
