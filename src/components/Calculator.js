@@ -65,27 +65,29 @@ class Calculator extends Component {
 			let secondValue = this.state.secondValue;
 			let value;
 
+			// append a negative sign to the current value 
+			// Flip the second value
 			if (this.state.firstValueSet) {
 				if (secondValue.slice(0, 1) === '-') {
 					value = secondValue.replace('-', '');
 				}
 				else {
 					value = `-${secondValue}`;
+					this.setState({ secondValue: value })
 				}
-			}
+			}    // Flip the first value
 			else {
 				if (firstValue.slice(0, 1) === '-') {
 					value = firstValue.replace('-', '');
 				}
 				else {
 					value = `-${firstValue}`;
+					this.setState({ firstValue: value });
 				}
-			}
-
-			this.setState({ firstValue: value });
-			console.log(value);
+			}		
 		}
 		else {
+			console.log(squareValue);
 			this.setState({ firstValueSet: true });
 		}
 
