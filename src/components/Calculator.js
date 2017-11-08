@@ -59,6 +59,32 @@ class Calculator extends Component {
 		else if (squareValue === "=") {
 			console.log("they want the answer, man");
 		}
+		else if (squareValue === "+/-") {
+
+			let firstValue = this.state.firstValue;
+			let secondValue = this.state.secondValue;
+			let value;
+
+			if (this.state.firstValueSet) {
+				if (secondValue.slice(0, 1) === '-') {
+					value = secondValue.replace('-', '');
+				}
+				else {
+					value = `-${secondValue}`;
+				}
+			}
+			else {
+				if (firstValue.slice(0, 1) === '-') {
+					value = firstValue.replace('-', '');
+				}
+				else {
+					value = `-${firstValue}`;
+				}
+			}
+
+			this.setState({ firstValue: value });
+			console.log(value);
+		}
 		else {
 			this.setState({ firstValueSet: true });
 		}

@@ -6,6 +6,7 @@ const styles = {
 		maxWidth: '228px',
 		height: '75px',
 		borderRadius: '5px 5px 0px 0px',
+		opacity: '0.9'
 	}
 }
 
