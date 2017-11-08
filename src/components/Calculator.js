@@ -14,6 +14,7 @@ class Calculator extends Component {
 
 		this.state = {
 			numberPad: [],
+			screen: [],
 			firstValueSet: false,
 			firstValue: '',
 			secondValue: '',
@@ -23,6 +24,16 @@ class Calculator extends Component {
 		this.drawCalc = this.drawCalc.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.calculateAnswer = this.calculateAnswer.bind(this);
+	}
+
+	drawScreen = (value) => {
+
+		const screen = [];
+		const key = 0;
+
+		screen.push(<Screen key={key} value={ value } />);
+
+		this.setState({ screen: screen });
 	}
 
 	drawCalc = (interfaceList) => {
@@ -52,11 +63,15 @@ class Calculator extends Component {
 
 		if (this.state.firstValueSet && !isNaN(parseInt(squareValue))) {
 			secondValue = secondValue + squareValue.toString();
-			this.setState({ secondValue: secondValue });
+			this.setState({ secondValue: secondValue }, () => {
+				this.drawScreen(this.state.secondValue);
+			});	
 		}
 		else if (!isNaN(parseInt(squareValue)) || squareValue === '.') {
 			firstValue = firstValue + squareValue.toString();
-			this.setState({ firstValue: firstValue });
+			this.setState({ firstValue: firstValue }, () => {
+				this.drawScreen(this.state.firstValue);
+			});
 		}
 		else if (squareValue === "=") {
 			const answer = this.calculateAnswer(
@@ -65,7 +80,7 @@ class Calculator extends Component {
 																						this.state.operation
 																					);
 
-			console.log(answer);
+			this.drawScreen(answer);
 		}
 		else if (squareValue === "+/-") {
 
@@ -81,7 +96,9 @@ class Calculator extends Component {
 				}
 				else {
 					value = `-${secondValue}`;
-					this.setState({ secondValue: value });
+					this.setState({ secondValue: value }, () => {
+						this.drawScreen(this.state.secondValue);
+					});
 				}
 			}    // Flip the first value
 			else {
@@ -90,7 +107,9 @@ class Calculator extends Component {
 				}
 				else {
 					value = `-${firstValue}`;
-					this.setState({ firstValue: value });
+					this.setState({ firstValue: value }, () => {
+						this.drawScreen(this.state.firstValue);
+					});
 				}
 			}		
 		}
@@ -121,13 +140,14 @@ class Calculator extends Component {
 
 	componentWillMount () {
 		this.drawCalc(interfaceList);
+		this.drawScreen(0);
 	}
 
 	render () {
 		return (
 			<div>
 				<div>
-					<Screen />
+					{ this.state.screen }
 				</div>
 				<div style={ styles }>
 					{ this.state.numberPad }

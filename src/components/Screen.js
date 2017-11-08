@@ -10,12 +10,13 @@ const styles = {
 	}
 }
 
-const Screen = () => {
+const Screen = ({ value }) => {
 
 	const { divStyle } = styles;
 
 	return (
 		<div style={ divStyle }>
+			{value}
 		</div>
 	);
 }
