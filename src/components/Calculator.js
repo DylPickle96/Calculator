@@ -14,13 +14,15 @@ class Calculator extends Component {
 
 		this.state = {
 			numberPad: [],
+			firstValueSet: false,
 			firstValue: '',
 			secondValue: '',
-			firstValueSet: false
+			operation: ''
 		}
 
 		this.drawCalc = this.drawCalc.bind(this);
 		this.handleClick = this.handleClick.bind(this);
+		this.calculateAnswer = this.calculateAnswer.bind(this);
 	}
 
 	drawCalc = (interfaceList) => {
@@ -57,7 +59,13 @@ class Calculator extends Component {
 			this.setState({ firstValue: firstValue });
 		}
 		else if (squareValue === "=") {
-			console.log("they want the answer, man");
+			const answer = this.calculateAnswer(
+																				 		this.state.firstValue,
+																						this.state.secondValue,
+																						this.state.operation
+																					);
+
+			console.log(answer);
 		}
 		else if (squareValue === "+/-") {
 
@@ -73,7 +81,7 @@ class Calculator extends Component {
 				}
 				else {
 					value = `-${secondValue}`;
-					this.setState({ secondValue: value })
+					this.setState({ secondValue: value });
 				}
 			}    // Flip the first value
 			else {
@@ -87,15 +95,28 @@ class Calculator extends Component {
 			}		
 		}
 		else {
-			console.log(squareValue);
-			this.setState({ firstValueSet: true });
+			this.setState({ firstValueSet: true, operation: squareValue });
 		}
 
-		setTimeout( () => {
-			console.log(this.state.firstValue);
-			console.log(this.state.secondValue);
-		}, 20);
+	}
 
+	calculateAnswer = (fV,  sV, operation)=> {
+
+		const firstValue = parseInt(fV);
+		const secondValue = parseInt(sV);
+
+		if (operation === '+') {
+			return firstValue + secondValue;
+		}
+		else if (operation === '-') {
+			return firstValue - secondValue;
+		}
+		else if (operation === 'X') {
+			return firstValue * secondValue;
+		}
+		else if (operation === '/') {
+			return firstValue / secondValue;
+		}
 	}
 
 	componentWillMount () {
