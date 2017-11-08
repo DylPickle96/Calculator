@@ -61,13 +61,13 @@ class Calculator extends Component {
 		let firstValue = this.state.firstValue;
 		let secondValue = this.state.secondValue;
 
-		if (this.state.firstValueSet && !isNaN(parseInt(squareValue))) {
+		if (this.state.firstValueSet && !isNaN(parseInt(squareValue, 10))) {
 			secondValue = secondValue + squareValue.toString();
 			this.setState({ secondValue: secondValue }, () => {
 				this.drawScreen(this.state.secondValue);
 			});	
 		}
-		else if (!isNaN(parseInt(squareValue)) || squareValue === '.') {
+		else if (!isNaN(parseInt(squareValue, 10)) || squareValue === '.') {
 			firstValue = firstValue + squareValue.toString();
 			this.setState({ firstValue: firstValue }, () => {
 				this.drawScreen(this.state.firstValue);
@@ -121,8 +121,8 @@ class Calculator extends Component {
 
 	calculateAnswer = (fV,  sV, operation)=> {
 
-		const firstValue = parseInt(fV);
-		const secondValue = parseInt(sV);
+		const firstValue = parseInt(fV, 10);
+		const secondValue = parseInt(sV, 10);
 
 		if (operation === '+') {
 			return firstValue + secondValue;
