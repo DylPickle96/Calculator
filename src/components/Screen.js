@@ -7,7 +7,7 @@ const styles = {
 		height: '75px',
 		borderRadius: '5px 5px 0px 0px',
 		opacity: '0.9',
-		lineHeight: '100px',
+		lineHeight: '95px',
 	},
 	numberStyle: {
 		color: 'white',
@@ -19,7 +19,7 @@ const styles = {
 }
 
 const Screen = ({ value }) => {
-	
+
 	const { divStyle, numberStyle } = styles;
 
 	return (

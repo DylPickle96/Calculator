@@ -31,7 +31,7 @@ class Calculator extends Component {
 		const screen = [];
 		const key = 0;
 
-		screen.push(<Screen key={key} value={ value } />);
+		screen.push(<Screen key={key} value={value} />);
 
 		this.setState({ screen: screen });
 	}
@@ -43,14 +43,14 @@ class Calculator extends Component {
 		interfaceList.forEach( (interfaceObject, i) => {
 
 			numberPad.push(<Square 
-															key={ i } 
-															squareValue={ interfaceObject.value } 
-															color={ interfaceObject.color } 
-															width={ interfaceObject.width } 
-															borderRadius={ interfaceObject.borderRadius }
-															fontColor={ interfaceObject.fontColor }
+															key={i} 
+															squareValue={interfaceObject.value} 
+															color={interfaceObject.color} 
+															width={interfaceObject.width} 
+															borderRadius={interfaceObject.borderRadius}
+															fontColor={interfaceObject.fontColor}
 															handleClick={this.handleClick}
-										/>)
+										/>);
 		});
 
 		this.setState({ numberPad: numberPad });
@@ -129,9 +129,23 @@ class Calculator extends Component {
 
 		}
 		else {
-			this.setState({ firstValueSet: true, operation: squareValue });
-		}
 
+			if (this.state.firstValue !== '' && this.state.secondValue !== '' && this.state.operation !== '') {
+
+				const answer = this.calculateAnswer(
+																					  	this.state.firstValue,
+																							this.state.secondValue,
+																							this.state.operation
+																					 );
+
+				this.drawScreen(answer);
+
+				this.setState({ firstValue: answer, secondValue: '', operation: squareValue });
+			}
+			else {
+				this.setState({ firstValueSet: true, operation: squareValue });
+			}
+		}
 	}
 
 	calculateAnswer = (fV,  sV, operation)=> {
