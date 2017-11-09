@@ -73,15 +73,6 @@ class Calculator extends Component {
 				this.drawScreen(this.state.firstValue);
 			});
 		}
-		else if (squareValue === "=") {
-			const answer = this.calculateAnswer(
-																				 		this.state.firstValue,
-																						this.state.secondValue,
-																						this.state.operation
-																					);
-
-			this.drawScreen(answer);
-		}
 		else if (squareValue === "+/-") {
 
 			let firstValue = this.state.firstValue;
@@ -91,6 +82,7 @@ class Calculator extends Component {
 			// append a negative sign to the current value 
 			// Flip the second value
 			if (this.state.firstValueSet) {
+
 				if (secondValue.slice(0, 1) === '-') {
 					value = secondValue.replace('-', '');
 				}
@@ -100,8 +92,11 @@ class Calculator extends Component {
 						this.drawScreen(this.state.secondValue);
 					});
 				}
-			}    // Flip the first value
+
+			}    
+			// Flip the first value
 			else {
+
 				if (firstValue.slice(0, 1) === '-') {
 					value = firstValue.replace('-', '');
 				}
@@ -111,7 +106,27 @@ class Calculator extends Component {
 						this.drawScreen(this.state.firstValue);
 					});
 				}
+
 			}		
+		}
+		else if (squareValue === "=") {
+
+			if (this.state.firstValue !== '' && this.state.secondValue !== '' && this.state.operation !== '') {
+
+				const answer = this.calculateAnswer(
+																				 		this.state.firstValue,
+																						this.state.secondValue,
+																						this.state.operation
+																				 );
+
+				this.setState({ firstValueSet: false, firstValue: '', secondValue: '' }, () => {
+					this.drawScreen(answer);
+				});
+			}
+			else {
+				return;
+			}
+
 		}
 		else {
 			this.setState({ firstValueSet: true, operation: squareValue });
@@ -121,8 +136,8 @@ class Calculator extends Component {
 
 	calculateAnswer = (fV,  sV, operation)=> {
 
-		const firstValue = parseInt(fV, 10);
-		const secondValue = parseInt(sV, 10);
+		const firstValue = parseFloat(fV, 10);
+		const secondValue = parseFloat(sV, 10);
 
 		if (operation === '+') {
 			return firstValue + secondValue;
