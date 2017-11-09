@@ -43,14 +43,14 @@ class Calculator extends Component {
 		interfaceList.forEach( (interfaceObject, i) => {
 
 			numberPad.push(<Square 
-															key={i} 
-															squareValue={interfaceObject.value} 
-															color={interfaceObject.color} 
-															width={interfaceObject.width} 
-															borderRadius={interfaceObject.borderRadius}
-															fontColor={interfaceObject.fontColor}
-															handleClick={this.handleClick}
-										/>);
+									key={i} 
+									squareValue={interfaceObject.value} 
+									color={interfaceObject.color} 
+									width={interfaceObject.width} 
+									borderRadius={interfaceObject.borderRadius}
+									fontColor={interfaceObject.fontColor}
+									handleClick={this.handleClick}
+						  	/>);
 		});
 
 		this.setState({ numberPad: numberPad });
@@ -109,25 +109,6 @@ class Calculator extends Component {
 
 			}		
 		}
-		else if (squareValue === "=") {
-
-			if (this.state.firstValue !== '' && this.state.secondValue !== '' && this.state.operation !== '') {
-
-				const answer = this.calculateAnswer(
-																				 		this.state.firstValue,
-																						this.state.secondValue,
-																						this.state.operation
-																				 );
-
-				this.setState({ firstValueSet: false, firstValue: '', secondValue: '' }, () => {
-					this.drawScreen(answer);
-				});
-			}
-			else {
-				return;
-			}
-
-		}
 		else if (squareValue === "%") {
 
 			let firstValue = this.state.firstValue;
@@ -138,15 +119,40 @@ class Calculator extends Component {
 				this.drawScreen(answer);
 			});
 		}
+		else if (squareValue === "AC") {
+			this.setState({firstValueSet: false, firstValue: '', secondValue: '', operation: '' }, () => {
+				this.drawCalc(interfaceList);
+				this.drawScreen(0);
+			});
+		}
+		else if (squareValue === "=") {
+
+			if (this.state.firstValue !== '' && this.state.secondValue !== '' && this.state.operation !== '') {
+
+				const answer = this.calculateAnswer(
+														this.state.firstValue,
+														this.state.secondValue,
+														this.state.operation
+													);
+
+				this.setState({ firstValueSet: false, firstValue: '', secondValue: '' }, () => {
+					this.drawScreen(answer);
+				});
+			}
+			else {
+				return;
+			}
+
+		}
 		else {
 
 			if (this.state.firstValue !== '' && this.state.secondValue !== '' && this.state.operation !== '') {
 
 				const answer = this.calculateAnswer(
-																					  	this.state.firstValue,
-																							this.state.secondValue,
-																							this.state.operation
-																					 );
+														this.state.firstValue,
+														this.state.secondValue,
+														this.state.operation
+													);
 
 				this.drawScreen(answer);
 

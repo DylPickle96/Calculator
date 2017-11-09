@@ -8,7 +8,7 @@ const Square = ({ squareValue, color, width, borderRadius, fontColor, handleClic
 			height: '48px',
 			border: '0.5px rgb(142, 142, 142) solid',
 			float: 'left',
-  		margin: '0',
+  			margin: '0',
  	 		padding: '0',
  	 		fontFamily: 'Helvetica',
  	 		fontSize: '1.1em',
