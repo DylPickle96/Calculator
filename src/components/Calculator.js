@@ -128,6 +128,16 @@ class Calculator extends Component {
 			}
 
 		}
+		else if (squareValue === "%") {
+
+			let firstValue = this.state.firstValue;
+
+			const answer = firstValue / 100;
+
+			this.setState({ firstValue: '' }, () => {
+				this.drawScreen(answer);
+			});
+		}
 		else {
 
 			if (this.state.firstValue !== '' && this.state.secondValue !== '' && this.state.operation !== '') {
