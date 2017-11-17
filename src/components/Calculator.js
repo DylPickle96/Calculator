@@ -40,6 +40,7 @@ class Calculator extends Component {
 
 		const numberPad = [];
 
+		
 		interfaceList.forEach( (interfaceObject, i) => {
 
 			numberPad.push(<Square 
@@ -192,13 +193,12 @@ class Calculator extends Component {
 		return (
 			<div>
 				<div>
-					{ this.state.screen }
+					{this.state.screen}
 				</div>
-				<div style={ styles }>
-					{ this.state.numberPad }
+				<div style={styles}>
+					{this.state.numberPad}
 				</div>
 			</div>
-
 		);
 	}
 }

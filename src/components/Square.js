@@ -1,37 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Square = ({ squareValue, color, width, borderRadius, fontColor, handleClick }) => {
+class Square extends Component {
 
-	const styles = {
-		divStyle: {
-			width: width,
-			height: '48px',
-			border: '0.5px rgb(142, 142, 142) solid',
-			float: 'left',
-  			margin: '0',
- 	 		padding: '0',
- 	 		fontFamily: 'Helvetica',
- 	 		fontSize: '1.1em',
- 	 		textAlign: 'center',
- 	 		lineHeight: '45px',
- 	 		backgroundColor: color,
- 	 		borderRadius: borderRadius,
- 	 		color: fontColor
-		},
-		spanStyle: {
-			display: 'inline-block',
-			verticalAlign: 'middle',
-			lineHeight: 'normal'
+	constructor (props) {
+		super(props);
+
+		this.state = {
+			clicked: false
 		}
+
+		this.setClicked = this.setClicked.bind(this);
+		this.removeClicked = this.removeClicked.bind(this);
 	}
 
-	const { divStyle, spanStyle } = styles;
+	setClicked = () => {
+		this.setState({clicked: true});
+	}
 
-	return (
-		<div style={ divStyle } onClick={ handleClick.bind(this, squareValue) }>
-			<span style={ spanStyle }>{ squareValue }</span>
-		</div>
-	);
+	removeClicked = () => {
+		this.setState({clicked: false});	
+	}
+
+	render () {
+
+		const { squareValue, color, width, borderRadius, fontColor, handleClick } = this.props;
+
+		const colorStyle = (this.state.clicked) ? 'rgb(128, 128, 128)' : color;
+
+		const styles = {
+			divStyle: {
+				width: width,
+				height: '48px',
+				border: '0.5px rgb(142, 142, 142) solid',
+				float: 'left',
+	  			margin: '0',
+	 	 		padding: '0',
+	 	 		fontFamily: 'Helvetica',
+	 	 		fontSize: '1.1em',
+	 	 		textAlign: 'center',
+	 	 		lineHeight: '45px',
+	 	 		backgroundColor: colorStyle,
+	 	 		borderRadius: borderRadius,
+	 	 		color: fontColor
+			},
+			spanStyle: {
+				display: 'inline-block',
+				verticalAlign: 'middle',
+				lineHeight: 'normal'
+			}
+		}
+
+		const { divStyle, spanStyle } = styles;
+
+		return (
+			<div style={divStyle} onClick={ handleClick.bind(this, squareValue) } onMouseDown={this.setClicked} onMouseUp={this.removeClicked}>
+				<span style={spanStyle}>{squareValue}</span>
+			</div>
+		);
+
+	}
 };
 
 export default Square;
