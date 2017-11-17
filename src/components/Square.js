@@ -25,7 +25,7 @@ class Square extends Component {
 
 		const { squareValue, color, width, borderRadius, fontColor, handleClick } = this.props;
 
-		const colorStyle = (this.state.clicked) ? 'rgb(128, 128, 128)' : color;
+		const colorStyle = (this.state.clicked) ? 'rgb(178, 178, 178)' : color;
 
 		const styles = {
 			divStyle: {
